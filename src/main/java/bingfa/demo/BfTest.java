@@ -5,7 +5,6 @@ import java.util.concurrent.*;
 
 @Slf4j
 public class BfTest {
-    private final static Object o = new Object();
     public static int clienttotal = 5000;
     public static  int threadtotal = 200;
     public static    int count = 0;
@@ -34,7 +33,5 @@ public class BfTest {
     }
     public static  void  add(){
         count++;
-        System.out.println("Asfdasfd");
-        System.out.println("Asfdasfd");
     }
 }
