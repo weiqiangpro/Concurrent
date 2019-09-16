@@ -34,5 +34,6 @@ public class BfTest {
     }
     public static  void  add(){
         count++;
+        System.out.println(123123);
     }
 }
