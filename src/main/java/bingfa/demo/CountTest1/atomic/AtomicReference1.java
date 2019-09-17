@@ -1,6 +1,7 @@
-package bingfa.demo.CountTest1;
+package bingfa.demo.CountTest1.atomic;
 
 import bingfa.demo.annations.ThreadSafe;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -9,7 +10,6 @@ import java.util.concurrent.atomic.AtomicReference;
 @ThreadSafe
 public class AtomicReference1 {
     private static AtomicReference<Integer> atomicReference = new AtomicReference<>(0);
-
     public static void main(String[] args) {
         atomicReference.compareAndSet(0,2);
         atomicReference.compareAndSet(0,1);
