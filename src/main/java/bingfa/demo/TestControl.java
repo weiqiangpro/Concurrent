@@ -12,6 +12,6 @@ public class TestControl {
     @RequestMapping("/test")
     public String test(){
         System.out.println(i++);
-        return "hello";
+        return "hello world";
     }
 }
