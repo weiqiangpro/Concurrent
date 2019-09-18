@@ -1,20 +1,19 @@
-package bingfa.demo.CountTest1;
+package bingfa.demo.CountTest1.atomic;
 
-import com.fasterxml.jackson.databind.ser.std.StdJdkSerializers;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.LongAdder;
 
 @Slf4j
-public class CountExample1 {
+public class CountExample3 {
     private final static Object o = new Object();
     public static int clienttotal = 5000;
     public static  int threadtotal = 200;
-    public static AtomicInteger count= new AtomicInteger(0);
+    public static LongAdder count= new LongAdder();
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -35,10 +34,10 @@ public class CountExample1 {
             }
         countDownLatch.await();
         executorService.shutdown();
-        log.info("count:{}",count.get());
+        log.info("count:{}",count);
 
     }
     public static  void  add(){
-        count.getAndIncrement();
+        count.increment();
     }
 }
