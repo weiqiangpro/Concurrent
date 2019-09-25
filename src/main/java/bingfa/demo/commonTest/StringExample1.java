@@ -11,7 +11,6 @@ import java.util.concurrent.Semaphore;
 @Slf4j
 @NotThreadSafe
 public class StringExample1 {
-    private final static Object o = new Object();
     public static int clienttotal = 5000;
     public static  int threadtotal = 200;
     public static StringBuilder str=new StringBuilder("");

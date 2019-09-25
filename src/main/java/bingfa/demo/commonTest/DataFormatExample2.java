@@ -1,6 +1,7 @@
 package bingfa.demo.commonTest;
 
 import bingfa.demo.annations.NotThreadSafe;
+import bingfa.demo.annations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.text.ParseException;
@@ -11,12 +12,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 @Slf4j
-@NotThreadSafe
+@ThreadSafe
 public class DataFormatExample2 {
-    private final static Object o = new Object();
     public static int clienttotal = 5000;
     public static  int threadtotal = 200;
-    public static SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyymmdd");
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -41,6 +40,8 @@ public class DataFormatExample2 {
     }
     public static  void  add(){
         try {
+            SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyymmdd");
+
             simpleDateFormat.parse("20190925");
         } catch (ParseException e) {
             e.printStackTrace();

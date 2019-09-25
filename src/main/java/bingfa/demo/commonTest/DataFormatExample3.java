@@ -2,7 +2,12 @@ package bingfa.demo.commonTest;
 
 import bingfa.demo.annations.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -10,11 +15,10 @@ import java.util.concurrent.Semaphore;
 
 @Slf4j
 @ThreadSafe
-public class StringExample2 {
+public class DataFormatExample3 {
     public static int clienttotal = 5000;
     public static  int threadtotal = 200;
-    public static StringBuffer str=new StringBuffer("");
-
+    private static DateTimeFormatter dateTimeFormatter = DateTimeFormat.forPattern("yyyymmdd");
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(threadtotal);
@@ -34,10 +38,9 @@ public class StringExample2 {
             }
         countDownLatch.await();
         executorService.shutdown();
-        log.info("count:{}",str.length());
 
     }
     public static  void  add(){
-        str.append("1");
+        DateTime.parse("19980723",dateTimeFormatter);
     }
 }
