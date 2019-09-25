@@ -1,4 +1,4 @@
-package bingfa.demo.StringTest;
+package bingfa.demo.commonTest;
 
 import bingfa.demo.annations.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
